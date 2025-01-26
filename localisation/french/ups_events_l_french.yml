@@ -1,0 +1,25 @@
+﻿l_french:
+  ups.1.t:0 "S'unir ou se diviser ?"
+  ups.1.d:0 "Si nous avons combattu main dans la main jusqu'à présent pour des enjeux communs, il est temps aujourd'hui de nous unifier en suivant le même chemin. Vaut-il mieux laisser le peuple divisé, mais sans confrontation, ou bien tenter de faire une purge et éliminer ce qui cause la déstabilisation de notre pays ?"
+  ups.1.a:0 "Faire une purge pourrait destabiliser le peuple, mais ensuite il sera uni et plus fort."
+  ups.1.b:0 "Favoriser la stabilité permet d'éviter des poches de résistance, mais le peuple est moins uni."
+
+  ups.2.t:0 "S'unir ou se diviser ?"
+  ups.2.d:0 "Si nous avons combattu main dans la main jusqu'à présent pour des enjeux communs, il est temps aujourd'hui de nous unifier en suivant le même chemin. Vaut-il mieux laisser le peuple divisé, mais sans confrontation, ou bien tenter de faire une purge et éliminer ce qui cause la déstabilisation de notre pays ?"
+  ups.2.a:0 "Faire une purge pourrait destabiliser le peuple, mais ensuite il sera uni et plus fort."
+  ups.2.b:0 "Favoriser la stabilité permet d'éviter des poches de résistance, mais le peuple est moins uni."
+
+  ups.3.t:0 "Invitation dans l'Union des peuples socialistes"
+  ups.3.d:0 "L'Union des peuples socialistes vous invite à rejoindre sa faction."
+  ups.3.a:0 "Avec plaisir"
+  ups.3.b:0 "Mieux vos se méfier"
+
+  ups.4.t:0 "Demande de liberation des indes orientales néerlandaises"
+  ups.4.d:0 "Le Grand Leader Leportus veut agrandir son influence en commençant par les Indes orientales néerlandaises. Comme ce territoire partage la même idéologie, le Kyanhg, il voit une chance de se rapprocher et de renforcer leurs liens."
+  ups.4.a:0 "Si cela m’est rentable..."
+  ups.4.b:0 "Mais ça tourne pas rond ?!"
+
+  ups.5.t:0 "L'Union des peuples socialistes demande Wilno"
+  ups.5.d:0 "L'Union des peuples socialistes souhaite obtenir Wilno pour annexer la Lituanie dans son intégralité, car Wilno est une revendication Lituanienne."
+  ups.5.a:0 "Bien sûr!"
+  ups.5.b:0 "Sûrement pas !"
