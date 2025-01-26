@@ -1,0 +1,337 @@
+﻿######################################
+# Union des peuples socialistes Events
+######################################
+
+add_namespace = ups
+
+#fascism
+
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = ups.1.a
+		ai_chance = { factor = 80 }
+		add_ideas = UPS_soutient_partie_kyanhg
+	}
+# fascism
+country_event = {
+	id = ups.1
+	title = ups.1.t
+	desc = ups.1.d
+	picture = GFX_report_event_japan_army_mountainside
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = ups.1.a
+		ai_chance = { factor = 80 }
+		add_ideas = UPS_soutient_partie_kyanhg
+		
+		#guerre civil fascism
+
+		hidden_effect = {
+			set_capital = { state = 195 }
+			start_civil_war = {
+				ruling_party = kyanhg
+				ideology = fascism
+				size = 0.2
+				capital = 206
+				states = { 204 194 241 }
+			}
+			random_other_country = {
+				limit = {
+					original_tag = UPS
+					has_government = fascism
+				}
+				set_stability = 0.3
+				set_war_support = 0.8
+			}
+			hidden_effect = { news_event = { id = news.grandleader.5 hours = 1 } }
+			
+			add_popularity = {
+				ideology = kyanhg
+				popularity = 0.60
+			}
+
+			set_stability = 0.3
+			set_war_support = 0.8
+		}
+		custom_effect_tooltip = UPS_fascism_civil_war_tt
+		add_stability = -0.25
+		random_other_country = {
+			limit = {
+				original_tag = UPS
+				has_government = fascism
+			}
+			set_cosmetic_tag = GER_civil_war
+		}
+		hidden_effect = {
+			random_other_country = {
+				limit = {
+					original_tag = UPS
+					has_government = fascism
+				}
+				save_event_target_as = fascist_ups_civil_war
+				every_unit_leader = {
+					set_nationality = UPS
+				}
+			}
+			UPS = {
+				every_unit_leader = {
+					limit = {
+						OR = {
+							has_id = 3010
+						}
+					}
+					set_nationality = event_target:fascist_ups_civil_war
+				}
+			}
+		}		
+	}
+
+	option = {
+		name = ups.1.b
+		ai_chance = { factor = 20 }
+		stability_factor = -0.1
+		add_ideas = UPS_armee_faible
+		add_ideas = UPS_troubles_peuple
+		remove_ideas = UPS_soutient_partie_kyanhg
+	}
+}
+
+
+
+
+# Savoir choisir son camps - choice 
+country_event = {
+	id = ups.2
+	title = ups.2.t
+	desc = ups.2.d
+	picture = GFX_report_event_japan_army_mountainside
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = ups.2.a
+		ai_chance = { factor = 80 }
+		add_ideas = UPS_soutient_partie_kyanhg
+		
+		#guerre civil communiste
+
+		hidden_effect = {
+			set_capital = { state = 195 }
+			start_civil_war = {
+				ruling_party = kyanhg
+				ideology = communism
+				size = 0.2
+				capital = 224
+				states = { 243 205 }
+			}
+			random_other_country = {
+				limit = {
+					original_tag = UPS
+					has_government = communism
+				}
+				set_stability = 0.4
+				set_war_support = 0.8
+			}
+			hidden_effect = { news_event = { id = news.grandleader.5 hours = 1 } }
+			
+			add_popularity = {
+				ideology = kyanhg
+				popularity = 0.60
+			}
+
+			set_stability = 0.3
+			set_war_support = 0.8
+		}
+		custom_effect_tooltip = UPS_communism_civil_war_tt
+		add_stability = -0.25
+		random_other_country = {
+			limit = {
+				original_tag = UPS
+				has_government = communism
+			}
+			set_cosmetic_tag = SOV_civil_war
+		}
+		hidden_effect = {
+			random_other_country = {
+				limit = {
+					original_tag = UPS
+					has_government = communism
+				}
+				save_event_target_as = communist_ups_civil_war
+				every_unit_leader = {
+					set_nationality = UPS
+				}
+			}
+			UPS = {
+				every_unit_leader = {
+					limit = {
+						OR = {
+							has_id = 3011
+						}
+					}
+					set_nationality = event_target:communist_ups_civil_war
+				}
+			}
+		}		
+	}
+
+	option = {
+		name = ups.2.b
+		ai_chance = { factor = 20 }
+		stability_factor = -0.1
+		add_ideas = UPS_armee_faible
+		add_ideas = UPS_troubles_peuple
+		remove_ideas = UPS_soutient_partie_kyanhg
+	}
+}
+
+#inviter les indes orientales dans la faction
+
+country_event = {
+	id = ups.3
+	title = ups.3.t
+	desc = ups.3.d
+	picture = GFX_report_event_BRA_vargas1
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = ups.3.a
+		ai_chance = { factor = 90 }
+		add_ideas =
+
+		hidden_effect = {
+			}
+			
+		UPS = { add_to_faction = INS }
+		play_song = "l'appel du peuple"
+		add_political_power = 50
+		HOL = { 
+	    }
+					
+	}
+
+	option = {
+		name = ups.3.b
+		ai_chance = { factor = 10 }
+	}
+}
+
+
+#demander de liberer les indes orientales
+
+country_event = {
+	id = ups.4
+	title = ups.4.t
+	desc = ups.4.d
+	picture = GFX_report_event_BRA_vargas1
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = ups.4.a
+		ai_chance = { factor = 70 }
+		add_ideas =
+
+		hidden_effect = {
+			}
+			
+		HOL = { 
+			add_building_construction = {
+    			type = arms_factory
+    			level = 2
+    			instant_build = yes
+			}
+			set_autonomy = {
+    			target = INS
+    			autonomous_state = autonomy_free
+    			end_wars = no
+    			end_civil_wars = no
+			}
+					
+			send_equipment = {
+    			equipment = infantry_equipment
+    			amount = 100
+    			target = HOL
+			}
+			news_event = { id = news.grandleader.7 hours = 3 }
+		}				
+	}
+
+
+	option = {
+		name = ups.4.b
+		ai_chance = { factor = 30 }
+		
+		#guerre civil Kyanhg
+
+			INS = { 
+				start_civil_war = {
+					ruling_party = kyanhg
+					# Original country's ideology changes to communism
+					ideology = kyanhg
+					# Breakaway gets old ideology of ROOT
+					size = 0.8
+					capital = 335
+					states = {
+						673
+					}
+				}
+			}
+	}
+}
+
+#demander Wilno
+
+country_event = {
+	id = ups.5
+	title = ups.5.t
+	desc = ups.5.d
+	picture = GFX_report_event_BRA_vargas1
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = ups.5.a
+		ai_chance = { factor = 70 }
+		add_ideas =
+
+		hidden_effect = {
+			}
+			
+		UPS = { 
+			set_state_controller = 784
+			news_event = { id = news.grandleader.10 hours = 1 }
+		}				
+	}
+
+
+	option = {
+		name = ups.5.b
+		ai_chance = { factor = 30 }
+		
+		#guerre polonaise
+
+			UPS = { 
+				create_wargoal = {
+				type = annex_everything
+				target = POL
+				expire = 0
+				}
+				news_event = { id = news.grandleader.11 hours = 1 }
+			}
+	}
+}
+
+
+
+
+
+
+
+
+
