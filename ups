@@ -1,1 +1,1839 @@
-d
+focus_tree = {
+    id = Union_people_socialist_of_kyanhg_focus
+    country = {
+        factor = 0
+        modifier = {
+            add = 10
+            tag = UPS 
+        }
+        
+    }
+
+    continuous_focus_position = { x = 120 y = 1100 }
+ 
+    ############################
+    #focus Le peuple avant tout#
+    ############################
+    focus = {
+        id = UPS_Le_peuple_avant_tout
+        icon = GFX_focus_ITA_corpo_volontari_della_liberta
+        x = 25
+        y = 0
+        cost = 0
+        available_if_capitulated = yes
+        search_filters = { FOCUS_FILTER_POLITICAL }
+        ai_will_do = {
+            factor = 1
+        }
+
+        completion_reward = {
+            add_political_power = 100
+            news_event = { id = news.grandleader.1 hours = 3 } 
+        }
+    }
+
+ ###########################################le grand leader ##################################################################################################  
+
+    ############################
+    #focus Le grand leader     #
+    ############################
+    focus = {
+        id = UPS_Le_grand_Leader
+        icon = GFX_focus_ITA_corpo_volontari_della_liberta
+        x = -7
+        y = 1
+        relative_position_id = UPS_Le_peuple_avant_tout
+        cost = 0.1
+        prerequisite = { focus = UPS_Le_peuple_avant_tout}
+        mutually_exclusive { focus = Leader_Yassine }
+        mutually_exclusive { focus = Leportus }
+        mutually_exclusive { focus = Empereur_Leportus } 
+        available_if_capitulated = yes
+        search_filters = { FOCUS_FILTER_POLITICAL }
+        ai_will_do = {
+            factor = 1
+        }
+
+        completion_reward = {
+            add_stability = 0.1
+        }
+    }
+
+	 ###########################################le grand leader Elio ##################################################################################################  
+
+focus = {
+		id = GER_oppose_hitler
+		icon = GFX_focus_ger_oppose_hitler
+
+		allow_branch = {
+
+			NOT = { has_dlc = "Gotterdammerung" } 
+
+			if = {
+				limit = {
+					has_game_rule = {
+						rule = obsolete_focus_branches_visibility
+						option = HIDE
+					}
+				}
+				NOT = {
+					has_completed_focus = Le_grand_Leader_Elio
+				}
+			}
+
+		}
+
+		available = {
+			is_subject = no
+			has_government = kyanhg
+		}
+
+		x = 23
+		y = 2
+
+		relative_position_id = 
+
+		offset = {
+			x = -42
+			y = 0
+			trigger = {
+				has_game_rule = {
+					rule = obsolete_focus_branches_visibility
+					option = HIDE
+				}
+				has_completed_focus = GER_oppose_hitler
+			}
+		}
+
+		mutually_exclusive = { focus = Le_grand_Leader_Elio }
+
+		cost = 0
+
+		ai_will_do = {
+			factor = 7
+		}
+
+		search_filters = { FOCUS_FILTER_POLITICAL }
+
+		completion_reward = {
+
+			hidden_effect = { #offset from fascist reasons on 00_on_actions
+				add_ai_strategy = {
+				   type = alliance
+				   id = POL
+				   value = 2000
+				}
+				POL = {
+					add_ai_strategy = {
+					   type = alliance
+					   id = GER
+					   value = 2000
+					}
+				}
+			}
+
+			custom_effect_tooltip = GER_oppose_hitler_civil_war
+
+			effect_tooltip = {
+				GER_remove_mefo_bills = yes
+			}
+
+
+			custom_effect_tooltip = generic_skip_one_line_tt
+
+			add_political_power = 120
+			add_named_threat = { threat = 5 name = GER_oppose_hitler }
+
+			country_event = { id = wtt_germany.1 }
+
+			hidden_effect = {
+				if = {
+					limit = {
+						has_game_rule = {
+							rule = obsolete_focus_branches_visibility
+							option = HIDE
+						}
+					}
+					mark_focus_tree_layout_dirty = yes
+				}
+			}
+
+		}
+	}
+
+    #################################
+    #focus Elio nouveau grand leader#
+    #################################
+    focus = {
+        id = Le_grand_Leader_Elio
+        icon = GFX_focus_ITA_corpo_volontari_della_liberta
+        x = 3
+        y = 1
+        relative_position_id = UPS_Le_grand_Leader
+        cost = 0.1
+        prerequisite = { focus = UPS_Le_grand_Leader} 
+        mutually_exclusive { focus = UPS_Grand_Leader_Leportus }
+        available_if_capitulated = yes
+        search_filters = { FOCUS_FILTER_POLITICAL }
+        ai_will_do = {
+            factor = 1
+        }
+		allow_branch = {
+
+			NOT = { has_dlc = "Gotterdammerung" } 
+
+			if = {
+				limit = {
+					has_game_rule = {
+						rule = obsolete_focus_branches_visibility
+						option = HIDE
+					}
+				}
+				NOT = {
+					has_completed_focus = UPS_Grand_Leader_Leportus
+				}
+			}
+
+		}
+		offset = {
+			x = -3
+			y = 1
+			trigger = {
+				has_game_rule = {
+					rule = obsolete_focus_branches_visibility
+					option = HIDE
+				}
+				has_completed_focus = Le_grand_Leader_Elio
+			}
+		}
+
+		hidden_effect = {
+			if = {
+				limit = {
+					has_game_rule = {
+						rule = obsolete_focus_branches_visibility
+						option = HIDE
+					}
+				}
+				mark_focus_tree_layout_dirty = yes
+			}
+		}
+
+        completion_reward = {
+            add_political_power = 50
+            news_event = { id = news.grandleader.3 hours = 3 }
+            set_politics = {
+        ruling_party = communism
+        elections_allowed = no
+        last_election = "1935.12.17"
+        election_frequency = 48
+        long_name = l'Union_des_peuples_socialistes_communsites
+        name = svetova empire
+        }
+     }
+    }
+    }
+
+  ###########################################le grand leader Leportus ##################################################################################################  
+
+    #####################################
+    #focus Leportus nouveau grand leader#
+    #####################################
+    focus = {
+        id = UPS_Grand_Leader_Leportus
+        icon = GFX_focus_ITA_corpo_volontari_della_liberta
+        x = -3
+        y = 1
+        cost = 0.1
+        relative_position_id = UPS_Le_grand_Leader
+        prerequisite = { focus = UPS_Le_grand_Leader}
+        mutually_exclusive { focus = Le_grand_Leader_Elio }
+        available_if_capitulated = yes
+        search_filters = { FOCUS_FILTER_POLITICAL }
+        ai_will_do = {
+            factor = 1
+        }
+        completion_reward = {
+            add_political_power = 50
+            news_event = { id = news.grandleader.4 hours = 3 }
+            set_politics = {
+        ruling_party = kyanhg
+        elections_allowed = no
+        last_election = "1935.12.17"
+        election_frequency = 48
+        long_name = l'Union_des_peuples_socialistes
+        name = svetova empire
+        }
+     }
+    }
+    } 
+
+	#####################################################affaires internes#####################################################################################"
+
+    #################################
+    #focus affaire interne          #
+    #################################
+    focus = {
+        id = UPS_affaire_interne
+        icon = GFX_focus_ITA_corpo_volontari_della_liberta
+        x = -2
+        y = 1
+        relative_position_id = UPS_Grand_Leader_Leportus
+        cost = 0
+        search_filters = { FOCUS_FILTER_POLITICAL }
+        ai_will_do = {
+            factor = 1
+        }
+
+        prerequisite = { focus = UPS_Grand_Leader_Leportus}
+        completion_reward = {
+     }
+    }
+
+    #################################
+    #focus stabilité  leader LEP#
+    #################################
+    focus = {
+        id = UPS_stabilite_leader_leportus
+        icon = GFX_focus_ITA_corpo_volontari_della_liberta
+        x = 1
+        y = 1
+        relative_position_id = UPS_affaire_interne
+        cost = 0.1
+        prerequisite = { focus = UPS_affaire_interne}
+        mutually_exclusive { focus =  }
+        available_if_capitulated = yes
+        search_filters = { FOCUS_FILTER_POLITICAL }
+        ai_will_do = {
+            factor = 1
+        }
+
+        completion_reward = {
+            country_event = { id = ups.2 hours = 2 }
+            remove_ideas = UPS_troubles_peuple
+     }
+    }
+
+    #################################
+    #focus stabilité profond leader LEP#
+    #################################
+    focus = {
+        id = UPS_mettre_un_terme
+        icon = GFX_focus_ITA_corpo_volontari_della_liberta
+        x = 0
+        y = 1
+        relative_position_id = UPS_stabilite_leader_leportus
+        cost = 0
+        prerequisite = { focus = UPS_stabilite_leader_leportus}
+        mutually_exclusive { focus =  }
+        available = {
+            controls_state = 205
+            controls_state = 224
+            controls_state = 243
+        }
+        search_filters = { FOCUS_FILTER_POLITICAL }
+        ai_will_do = {
+            factor = 1
+        }
+
+        completion_reward = {
+            country_event = { id = ups.1 hours = 2 }
+     }
+    }
+
+    #################################
+    #focus stabilité final leader LEP#
+    #################################
+    focus = {
+        id = UPS_le_peuple_est_unis
+        icon = GFX_focus_ITA_corpo_volontari_della_liberta
+        x = 0
+        y = 1
+        relative_position_id = UPS_mettre_un_terme
+        cost = 0
+        prerequisite = { focus = UPS_mettre_un_terme}
+        mutually_exclusive { focus =  }
+        available = {
+            controls_state = 206
+            controls_state = 204
+            controls_state = 194
+            controls_state = 241
+        }
+        search_filters = { FOCUS_FILTER_POLITICAL }
+        ai_will_do = {
+            factor = 1
+        }
+
+        completion_reward = {
+            news_event = { id = news.grandleader.6 hours = 3 }
+     }
+    }
+
+	#################################
+    #focus organiser le pays      #
+    #################################
+    focus = {
+        id = UPS_reorganiser_le_pays
+        icon = GFX_focus_ITA_corpo_volontari_della_liberta
+        x = -1
+        y = 1
+        relative_position_id = UPS_affaire_interne
+        cost = 0
+        search_filters = { FOCUS_FILTER_POLITICAL }
+        ai_will_do = {
+            factor = 1
+        }
+
+        prerequisite = { focus = UPS_affaire_interne }
+        completion_reward = {	
+     	}
+    }
+
+	#################################
+    #focus changer le nom de leningrad #
+    #################################
+    focus = {
+        id = UPS_Saint-Petersbourg
+        icon = GFX_focus_ITA_corpo_volontari_della_liberta
+        x = 0
+        y = 2
+        relative_position_id = UPS_reorganiser_le_pays
+        cost = 0
+        search_filters = { FOCUS_FILTER_POLITICAL }
+        ai_will_do = {
+            factor = 1
+        }
+
+        prerequisite = { focus = UPS_reorganiser_le_pays }
+		prerequisite = { focus = UPS_le_peuple_est_unis }
+        completion_reward = {
+			set_province_name = {
+    		id = 3151
+    		name = "Saint-Pétersbourg"
+			}	
+     	}
+    }
+
+
+
+ ###########################################organiser un nouveau gouvernement##########################################################################################
+	#########################################
+    #focus organiser un nouveau gouvernement#
+    #########################################
+    focus = {
+        id = UPS_organiser_un_nouveau_gouvernement
+        icon = GFX_focus_ITA_corpo_volontari_della_liberta
+        x = 0
+        y = 1
+        relative_position_id = UPS_le_peuple_est_unis
+        cost = 0
+        prerequisite = { focus = UPS_le_peuple_est_unis}
+        mutually_exclusive { focus =  }
+        available = {
+        }
+        search_filters = { FOCUS_FILTER_POLITICAL }
+        ai_will_do = {
+            factor = 1
+        }
+
+        completion_reward = {
+			add_stability = 0.05
+     }
+    }
+	
+	#########################################
+    #focus premier ministre miodrag         #
+    #########################################
+    focus = {
+        id = UPS_premier_ministre
+        icon = GFX_focus_ITA_corpo_volontari_della_liberta
+        x = 0
+        y = 1
+        relative_position_id = UPS_organiser_un_nouveau_gouvernement
+        cost = 0
+        prerequisite = { focus = UPS_organiser_un_nouveau_gouvernement}
+        mutually_exclusive { focus =  }
+        available = {
+        }
+        search_filters = { FOCUS_FILTER_POLITICAL }
+        ai_will_do = {
+            factor = 1
+        }
+
+        completion_reward = {
+			add_stability = 0.01
+			remove_ideas = UPS_troubles_peuple
+     }
+    }
+
+	#########################################
+    #focus promouvoir la propagande           #
+    #########################################
+    focus = {
+        id = UPS_promouvoir_la_propagande
+        icon = GFX_focus_ITA_corpo_volontari_della_liberta
+        x = -1
+        y = 1
+        relative_position_id = UPS_premier_ministre
+        cost = 0
+        prerequisite = { focus = UPS_premier_ministre}
+        mutually_exclusive { focus = UPS_etre_honnete }
+        available = {
+        }
+        search_filters = { FOCUS_FILTER_POLITICAL }
+        ai_will_do = {
+            factor = 1
+        }
+
+        completion_reward = {
+			news_event = { id = news.grandleader.8 hours = 3 }
+			remove_ideas = UPS_armee_faible
+			add_stability = 0.01
+     }
+    }
+
+	#########################################
+    #focus être honnête                     #
+    #########################################
+    focus = {
+        id = UPS_etre_honnete
+        icon = GFX_focus_ITA_corpo_volontari_della_liberta
+        x = 1
+        y = 1
+        relative_position_id = UPS_premier_ministre
+        cost = 0
+        prerequisite = { focus = UPS_premier_ministre}
+        mutually_exclusive { focus = UPS_promouvoir_la_propagande }
+        available = {
+        }
+        search_filters = { FOCUS_FILTER_POLITICAL }
+        ai_will_do = {
+            factor = 1
+        }
+
+        completion_reward = {
+			news_event = { id = news.grandleader.9 hours = 3 }
+			Economist = 1
+			Maximum Speed = +5%
+			remove_ideas = UPS_armee_faible
+			add_stability = -0.05
+        }
+    }
+
+ ############################################affaire externe ###################################################################################################
+
+    #################################
+    #focus affaire externe          #
+    #################################
+    focus = {
+        id = UPS_affaire_externe
+        icon = GFX_focus_ITA_corpo_volontari_della_liberta
+        x = 2
+        y = 1
+        relative_position_id = UPS_Grand_Leader_Leportus
+        cost = 0
+        search_filters = { FOCUS_FILTER_POLITICAL }
+        ai_will_do = {
+            factor = 1
+        }
+
+        prerequisite = { focus = UPS_Grand_Leader_Leportus}
+        completion_reward = {
+     }
+    }
+    
+    #################################
+    #focus rapprochement politique      #
+    #################################
+    focus = {
+        id = UPS_rapprochement_ideologique
+        icon = GFX_focus_ITA_corpo_volontari_della_liberta
+        x = -1
+        y = 1
+        relative_position_id = UPS_faction
+        cost = 0
+        search_filters = { FOCUS_FILTER_POLITICAL }
+        ai_will_do = {
+            factor = 1
+        }
+
+        prerequisite = { focus = UPS_faction}
+        completion_reward = {
+			diplomatic_relation = {
+			country = INS
+    		relation = guarantee
+    		active = yes
+			}
+			diplomatic_relation = {
+			country = MAL
+    		relation = guarantee
+    		active = yes
+			}
+     }
+    }
+
+
+    #################################
+    #focus expention du kyanhg      #
+    #################################
+    focus = {
+        id = UPS_expention_du_kyanhg
+        icon = GFX_focus_ITA_corpo_volontari_della_liberta
+        x = 1
+        y = 1
+        relative_position_id = UPS_faction
+        cost = 0
+        search_filters = { FOCUS_FILTER_POLITICAL }
+        ai_will_do = {
+            factor = 1
+        }
+
+        prerequisite = { focus = UPS_faction}
+        completion_reward = {
+     }
+    }
+
+	#################################
+    #focus creer une faction      #
+    #################################
+    focus = {
+        id = UPS_faction
+        icon = GFX_focus_ITA_corpo_volontari_della_liberta
+        x = 0
+        y = 1
+        relative_position_id = UPS_affaire_externe
+        cost = 0
+        search_filters = { FOCUS_FILTER_POLITICAL }
+        ai_will_do = {
+            factor = 1
+        }
+
+        prerequisite = { focus = UPS_affaire_externe }
+        completion_reward = {
+			create_faction = "Union des peuples socialistes"	
+     	}
+    }
+
+	#################################
+    #focus inviter dans la faction les indes orientales#
+    #################################
+    focus = {
+        id = UPS_inviter_les_indes_orientales
+        icon = GFX_focus_ITA_corpo_volontari_della_liberta
+        x = 0
+        y = 1
+        relative_position_id = UPS_liberer_les_indes_orientales
+        cost = 0
+        search_filters = { FOCUS_FILTER_POLITICAL }
+        ai_will_do = {
+            factor = 1
+        }
+
+        prerequisite = { focus = UPS_liberer_les_indes_orientales}
+        completion_reward = {
+			INS = { country_event = { id = ups.3 hours = 1 } }
+     }
+    }
+
+	###################################################
+    #focus demander la libération des indes orientales#
+    ###################################################
+    focus = {
+        id = UPS_liberer_les_indes_orientales
+        icon = GFX_focus_ITA_corpo_volontari_della_liberta
+        x = -1
+        y = 1
+        relative_position_id = UPS_faction
+        cost = 0
+        search_filters = { FOCUS_FILTER_POLITICAL }
+		allowed 
+        ai_will_do = {
+            factor = 1
+        }
+
+        prerequisite = { focus = UPS_faction}
+        completion_reward = {
+			HOL = { country_event = { id = ups.4 hours = 1 } }
+     }
+    }
+
+    #################################
+    #focus se rapprocher de Mao     #
+    #################################
+	focus = {
+		id = UPS_prc_friend
+		icon = GFX_focus_chi_cooperation_with_the_communists
+		prerequisite = { focus = UPS_expention_du_kyanhg , focus = UPS_faction }
+		available = {
+			is_subject = no
+			AND = {
+				country_exists = PRC
+				PRC = { is_subject = no }
+				NOT = { has_war_with = PRC }
+			}
+		}
+		x = 0
+		y = 1
+		relative_position_id = UPS_expention_du_kyanhg
+		cost = 0
+
+		available_if_capitulated = yes
+
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				is_in_faction_with = PRC
+				factor = 0 #UPS-sempai has already noticed you!
+			}
+		}	
+		completion_reward = {
+			add_opinion_modifier = {
+                target = PRC
+                modifier = "improved_relations_ups_prc"
+			}	 
+		}
+	}
+
+ #######################################################industry################################################################################################
+    ############################
+    #focus industry            #
+    ############################
+    focus = {
+        id = ups_industry 
+        icon = GFX_focus_ITA_corpo_volontari_della_liberta 
+        x = 2
+        y = 0
+        cost = 0
+        available_if_capitulated = yes
+        available = {
+            
+        }
+        search_filters = { FOCUS_FILTER_INDUSTRY }
+        ai_will_do = {
+            factor = 1
+        }
+
+        completion_reward = {
+        }
+    }
+
+	#######################################################défense interieur################################################################################################
+
+
+	############################
+    #focus défense interieur   #
+    ############################
+    focus = {
+        id = UPS_defense_interieur 
+        icon = GFX_focus_ITA_corpo_volontari_della_liberta 
+        x = 4
+        y = 0
+        cost = 0
+        available_if_capitulated = yes
+        available = {
+            
+        }
+        search_filters = { FOCUS_FILTER_INDUSTRY }
+        ai_will_do = {
+            factor = 1
+        }
+
+        completion_reward = {
+        }
+    }
+
+    ############################
+    #focus fortification#
+    ############################
+    focus = {
+        id = fortifier_le_front_soviétique
+        icon = GFX_focus_ITA_corpo_volontari_della_liberta
+        x = 0
+        y = 1
+        relative_position_id = UPS_defense_interieur
+        cost = 0
+        available_if_capitulated = yes
+        available = {
+        }
+        prerequisite = { focus = UPS_defense_interieur }
+        search_filters = { FOCUS_FILTER_POLITICAL }
+        ai_will_do = {
+            factor = 1
+        }
+
+        completion_reward = {
+			50000 = {
+				if = {
+                    custom_effect_tooltip = UPS_fortifier_le_front_sovietique
+					hidden_effect = {
+                        add_building_construction = {
+							type = bunker
+							level = 1
+							province = 9554
+							instant_build = yes
+						}
+                        add_building_construction = {
+							type = bunker
+							level = 1
+							province = 6556
+							instant_build = yes
+						}
+                        add_building_construction = {
+							type = bunker
+							level = 1
+							province = 11453
+							instant_build = yes
+						}
+                        add_building_construction = {
+							type = bunker
+							level = 1
+							province = 3507
+							instant_build = yes
+						}
+                        add_building_construction = {
+							type = bunker
+							level = 1
+							province = 9249
+							instant_build = yes
+						}
+                        add_building_construction = {
+							type = bunker
+							level = 1
+							province = 9288
+							instant_build = yes
+						}
+                        add_building_construction = {
+							type = bunker
+							level = 1
+							province = 9342
+							instant_build = yes
+						}
+                        add_building_construction = {
+							type = bunker
+							level = 1
+							province = 11229
+							instant_build = yes
+						}
+                        add_building_construction = {
+							type = bunker
+							level = 1
+							province = 315
+							instant_build = yes
+						}
+                        add_building_construction = {
+							type = bunker
+							level = 1
+							province = 343
+							instant_build = yes
+						}
+                        add_building_construction = {
+							type = bunker
+							level = 1
+							province = 288
+							instant_build = yes
+						}
+                        add_building_construction = {
+							type = bunker
+							level = 1
+							province = 6330
+							instant_build = yes
+						}
+                        add_building_construction = {
+							type = bunker
+							level = 1
+							province = 6386
+							instant_build = yes
+						}
+                        add_building_construction = {
+							type = bunker
+							level = 1
+							province = 6411
+							instant_build = yes
+						}
+                        add_building_construction = {
+							type = bunker
+							level = 1
+							province = 6252
+							instant_build = yes
+						}
+                        add_building_construction = {
+							type = bunker
+							level = 1
+							province = 9261
+							instant_build = yes
+						}
+                        add_building_construction = {
+							type = bunker
+							level = 1
+							province = 6365
+							instant_build = yes
+						}
+                        add_building_construction = {
+							type = bunker
+							level = 1
+							province = 246
+							instant_build = yes
+						}
+                        add_building_construction = {
+							type = bunker
+							level = 1
+							province = 246
+							instant_build = yes
+						}
+                        add_building_construction = {
+							type = bunker
+							level = 1
+							province = 382
+							instant_build = yes
+						}
+                        add_building_construction = {
+							type = bunker
+							level = 1
+							province = 3308
+							instant_build = yes
+						}
+                        add_building_construction = {
+							type = bunker
+							level = 1
+							province = 3377
+							instant_build = yes
+						}
+                        add_building_construction = {
+							type = bunker
+							level = 1
+							province = 3263
+							instant_build = yes
+						}
+                        add_building_construction = {
+							type = bunker
+							level = 1
+							province = 274
+							instant_build = yes
+						}
+                        add_building_construction = {
+							type = bunker
+							level = 1
+							province = 335
+							instant_build = yes
+						}
+                        add_building_construction = {
+							type = bunker
+							level = 1
+							province = 11384
+							instant_build = yes
+						}
+                        add_building_construction = {
+							type = bunker
+							level = 1
+							province = 6303
+							instant_build = yes
+						}
+                        add_building_construction = {
+							type = bunker
+							level = 1
+							province = 11326
+							instant_build = yes
+						}
+                        add_building_construction = {
+							type = bunker
+							level = 1
+							province = 11250
+							instant_build = yes
+						}
+                        add_building_construction = {
+							type = bunker
+							level = 1
+							province = 344
+							instant_build = yes
+						}
+                        add_building_construction = {
+							type = bunker
+							level = 1
+							province = 9256
+							instant_build = yes
+						}
+                        add_building_construction = {
+							type = bunker
+							level = 1
+							province = 9046
+							instant_build = yes
+						}
+                        add_building_construction = {
+							type = bunker
+							level = 1
+							province = 6346
+							instant_build = yes
+						}
+                        add_building_construction = {
+							type = bunker
+							level = 1
+							province = 9144
+							instant_build = yes
+						}
+                        add_building_construction = {
+							type = bunker
+							level = 1
+							province = 6203
+							instant_build = yes
+						}
+                        add_building_construction = {
+							type = bunker
+							level = 1
+							province = 3143
+							instant_build = yes
+						}
+                        add_building_construction = {
+							type = bunker
+							level = 1
+							province = 3035
+							instant_build = yes
+						}
+                        add_building_construction = {
+							type = bunker
+							level = 1
+							province = 11131
+							instant_build = yes
+						}
+                        add_building_construction = {
+							type = bunker
+							level = 1
+							province = 3085
+							instant_build = yes
+						}
+                        add_building_construction = {
+							type = bunker
+							level = 1
+							province = 11083
+							instant_build = yes
+						}
+                        add_building_construction = {
+							type = bunker
+							level = 1
+							province = 11165
+							instant_build = yes
+						}
+                        add_building_construction = {
+							type = bunker
+							level = 1
+							province = 6169
+							instant_build = yes
+						}
+                        add_building_construction = {
+							type = bunker
+							level = 1
+							province = 9082
+							instant_build = yes
+						}
+                        add_building_construction = {
+							type = bunker
+							level = 1
+							province = 9190
+							instant_build = yes
+						}
+                        add_building_construction = {
+							type = bunker
+							level = 1
+							province = 11059
+							instant_build = yes
+						}
+					}
+				}
+			}
+			42 = {
+				custom_effect_tooltip =  
+			}
+			hidden_effect = {
+				42 = {
+					if = {
+                        add_building_construction = {
+							type = bunker
+							level = 1
+							province = 9554
+							instant_build = yes
+						}
+                        add_building_construction = {
+							type = bunker
+							level = 1
+							province = 6556
+							instant_build = yes
+						}
+                        add_building_construction = {
+							type = bunker
+							level = 1
+							province = 11453
+							instant_build = yes
+						}
+                        add_building_construction = {
+							type = bunker
+							level = 1
+							province = 3507
+							instant_build = yes
+						}
+                        add_building_construction = {
+							type = bunker
+							level = 1
+							province = 9249
+							instant_build = yes
+						}
+                        add_building_construction = {
+							type = bunker
+							level = 1
+							province = 9288
+							instant_build = yes
+						}
+                        add_building_construction = {
+							type = bunker
+							level = 1
+							province = 9342
+							instant_build = yes
+						}
+                        add_building_construction = {
+							type = bunker
+							level = 1
+							province = 11229
+							instant_build = yes
+						}
+                        add_building_construction = {
+							type = bunker
+							level = 1
+							province = 315
+							instant_build = yes
+						}
+                        add_building_construction = {
+							type = bunker
+							level = 1
+							province = 343
+							instant_build = yes
+						}
+                        add_building_construction = {
+							type = bunker
+							level = 1
+							province = 288
+							instant_build = yes
+						}
+                        add_building_construction = {
+							type = bunker
+							level = 1
+							province = 6330
+							instant_build = yes
+						}
+                        add_building_construction = {
+							type = bunker
+							level = 1
+							province = 6386
+							instant_build = yes
+						}
+                        add_building_construction = {
+							type = bunker
+							level = 1
+							province = 6411
+							instant_build = yes
+						}
+                        add_building_construction = {
+							type = bunker
+							level = 1
+							province = 6252
+							instant_build = yes
+						}
+                        add_building_construction = {
+							type = bunker
+							level = 1
+							province = 9261
+							instant_build = yes
+						}
+                        add_building_construction = {
+							type = bunker
+							level = 1
+							province = 6365
+							instant_build = yes
+						}
+                        add_building_construction = {
+							type = bunker
+							level = 1
+							province = 246
+							instant_build = yes
+						}
+                        add_building_construction = {
+							type = bunker
+							level = 1
+							province = 246
+							instant_build = yes
+						}
+                        add_building_construction = {
+							type = bunker
+							level = 1
+							province = 382
+							instant_build = yes
+						}
+                        add_building_construction = {
+							type = bunker
+							level = 1
+							province = 3308
+							instant_build = yes
+						}
+                        add_building_construction = {
+							type = bunker
+							level = 1
+							province = 3377
+							instant_build = yes
+						}
+                        add_building_construction = {
+							type = bunker
+							level = 1
+							province = 3263
+							instant_build = yes
+						}
+                        add_building_construction = {
+							type = bunker
+							level = 1
+							province = 274
+							instant_build = yes
+						}
+                        add_building_construction = {
+							type = bunker
+							level = 1
+							province = 335
+							instant_build = yes
+						}
+                        add_building_construction = {
+							type = bunker
+							level = 1
+							province = 11384
+							instant_build = yes
+						}
+                        add_building_construction = {
+							type = bunker
+							level = 1
+							province = 6303
+							instant_build = yes
+						}
+                        add_building_construction = {
+							type = bunker
+							level = 1
+							province = 11326
+							instant_build = yes
+						}
+                        add_building_construction = {
+							type = bunker
+							level = 1
+							province = 11250
+							instant_build = yes
+						}
+                        add_building_construction = {
+							type = bunker
+							level = 1
+							province = 344
+							instant_build = yes
+						}
+                        add_building_construction = {
+							type = bunker
+							level = 1
+							province = 9256
+							instant_build = yes
+						}
+                        add_building_construction = {
+							type = bunker
+							level = 1
+							province = 9046
+							instant_build = yes
+						}
+                        add_building_construction = {
+							type = bunker
+							level = 1
+							province = 6346
+							instant_build = yes
+						}
+                        add_building_construction = {
+							type = bunker
+							level = 1
+							province = 9144
+							instant_build = yes
+						}
+                        add_building_construction = {
+							type = bunker
+							level = 1
+							province = 6203
+							instant_build = yes
+						}
+                        add_building_construction = {
+							type = bunker
+							level = 1
+							province = 3143
+							instant_build = yes
+						}
+                        add_building_construction = {
+							type = bunker
+							level = 1
+							province = 3035
+							instant_build = yes
+						}
+                        add_building_construction = {
+							type = bunker
+							level = 1
+							province = 11131
+							instant_build = yes
+						}
+                        add_building_construction = {
+							type = bunker
+							level = 1
+							province = 3085
+							instant_build = yes
+						}
+                        add_building_construction = {
+							type = bunker
+							level = 1
+							province = 11083
+							instant_build = yes
+						}
+                        add_building_construction = {
+							type = bunker
+							level = 1
+							province = 11165
+							instant_build = yes
+						}
+                        add_building_construction = {
+							type = bunker
+							level = 1
+							province = 6169
+							instant_build = yes
+						}
+                        add_building_construction = {
+							type = bunker
+							level = 1
+							province = 9082
+							instant_build = yes
+						}
+                        add_building_construction = {
+							type = bunker
+							level = 1
+							province = 9190
+							instant_build = yes
+						}
+                        add_building_construction = {
+							type = bunker
+							level = 1
+							province = 11059
+							instant_build = yes
+						}
+					}
+				}
+			}			
+		}
+
+        completion_reward = {
+            hidden_effect = {
+						add_building_construction = {
+							type = bunker
+							level = 1
+							province = 9554
+							instant_build = yes
+						}
+                        add_building_construction = {
+							type = bunker
+							level = 1
+							province = 6556
+							instant_build = yes
+						}
+                        add_building_construction = {
+							type = bunker
+							level = 1
+							province = 11453
+							instant_build = yes
+						}
+                        add_building_construction = {
+							type = bunker
+							level = 1
+							province = 3507
+							instant_build = yes
+						}
+                        add_building_construction = {
+							type = bunker
+							level = 1
+							province = 9249
+							instant_build = yes
+						}
+                        add_building_construction = {
+							type = bunker
+							level = 1
+							province = 9288
+							instant_build = yes
+						}
+                        add_building_construction = {
+							type = bunker
+							level = 1
+							province = 9342
+							instant_build = yes
+						}
+                        add_building_construction = {
+							type = bunker
+							level = 1
+							province = 11229
+							instant_build = yes
+						}
+                        add_building_construction = {
+							type = bunker
+							level = 1
+							province = 315
+							instant_build = yes
+						}
+                        add_building_construction = {
+							type = bunker
+							level = 1
+							province = 343
+							instant_build = yes
+						}
+                        add_building_construction = {
+							type = bunker
+							level = 1
+							province = 288
+							instant_build = yes
+						}
+                        add_building_construction = {
+							type = bunker
+							level = 1
+							province = 6330
+							instant_build = yes
+						}
+                        add_building_construction = {
+							type = bunker
+							level = 1
+							province = 6386
+							instant_build = yes
+						}
+                        add_building_construction = {
+							type = bunker
+							level = 1
+							province = 6411
+							instant_build = yes
+						}
+                        add_building_construction = {
+							type = bunker
+							level = 1
+							province = 6252
+							instant_build = yes
+						}
+                        add_building_construction = {
+							type = bunker
+							level = 1
+							province = 9261
+							instant_build = yes
+						}
+                        add_building_construction = {
+							type = bunker
+							level = 1
+							province = 6365
+							instant_build = yes
+						}
+                        add_building_construction = {
+							type = bunker
+							level = 1
+							province = 246
+							instant_build = yes
+						}
+                        add_building_construction = {
+							type = bunker
+							level = 1
+							province = 246
+							instant_build = yes
+						}
+                        add_building_construction = {
+							type = bunker
+							level = 1
+							province = 382
+							instant_build = yes
+						}
+                        add_building_construction = {
+							type = bunker
+							level = 1
+							province = 3308
+							instant_build = yes
+						}
+                        add_building_construction = {
+							type = bunker
+							level = 1
+							province = 3377
+							instant_build = yes
+						}
+                        add_building_construction = {
+							type = bunker
+							level = 1
+							province = 3263
+							instant_build = yes
+						}
+                        add_building_construction = {
+							type = bunker
+							level = 1
+							province = 274
+							instant_build = yes
+						}
+                        add_building_construction = {
+							type = bunker
+							level = 1
+							province = 335
+							instant_build = yes
+						}
+                        add_building_construction = {
+							type = bunker
+							level = 1
+							province = 11384
+							instant_build = yes
+						}
+                        add_building_construction = {
+							type = bunker
+							level = 1
+							province = 6303
+							instant_build = yes
+						}
+                        add_building_construction = {
+							type = bunker
+							level = 1
+							province = 11326
+							instant_build = yes
+						}
+                        add_building_construction = {
+							type = bunker
+							level = 1
+							province = 11250
+							instant_build = yes
+						}
+                        add_building_construction = {
+							type = bunker
+							level = 1
+							province = 344
+							instant_build = yes
+						}
+                        add_building_construction = {
+							type = bunker
+							level = 1
+							province = 9256
+							instant_build = yes
+						}
+                        add_building_construction = {
+							type = bunker
+							level = 1
+							province = 9046
+							instant_build = yes
+						}
+                        add_building_construction = {
+							type = bunker
+							level = 1
+							province = 6346
+							instant_build = yes
+						}
+                        add_building_construction = {
+							type = bunker
+							level = 1
+							province = 9144
+							instant_build = yes
+						}
+                        add_building_construction = {
+							type = bunker
+							level = 1
+							province = 6203
+							instant_build = yes
+						}
+                        add_building_construction = {
+							type = bunker
+							level = 1
+							province = 3143
+							instant_build = yes
+						}
+                        add_building_construction = {
+							type = bunker
+							level = 1
+							province = 3035
+							instant_build = yes
+						}
+                        add_building_construction = {
+							type = bunker
+							level = 1
+							province = 11131
+							instant_build = yes
+						}
+                        add_building_construction = {
+							type = bunker
+							level = 1
+							province = 3085
+							instant_build = yes
+						}
+                        add_building_construction = {
+							type = bunker
+							level = 1
+							province = 11083
+							instant_build = yes
+						}
+                        add_building_construction = {
+							type = bunker
+							level = 1
+							province = 11165
+							instant_build = yes
+						}
+                        add_building_construction = {
+							type = bunker
+							level = 1
+							province = 6169
+							instant_build = yes
+						}
+                        add_building_construction = {
+							type = bunker
+							level = 1
+							province = 9082
+							instant_build = yes
+						}
+                        add_building_construction = {
+							type = bunker
+							level = 1
+							province = 9190
+							instant_build = yes
+						}
+                        add_building_construction = {
+							type = bunker
+							level = 1
+							province = 11059
+							instant_build = yes
+						}
+            }
+        }
+    }
+
+ #################################revendication############################################################################################################
+
+	############################
+    #focus revendication       #
+    ############################
+    focus = {
+        id = revendication
+        icon = GFX_focus_ITA_corpo_volontari_della_liberta 
+        x = 10
+        y = 2
+        cost = 0
+		prerequisite = { focus = UPS_Grand_Leader_Leportus}
+        available_if_capitulated = yes
+        search_filters = { FOCUS_FILTER_POLITICAL }
+        ai_will_do = {
+            factor = 1
+        }
+        completion_reward = {
+        }
+    }
+
+	####################################
+    #focus revendiquer les pays baltes #
+    ####################################
+    focus = {
+        id = UPS_revendiquer_les_pays_baltes
+        icon = GFX_focus_ITA_corpo_volontari_della_liberta 
+        x = 0
+        y = 1
+        cost = 0
+		prerequisite = { focus = revendication}
+		relative_position_id = revendication
+        available_if_capitulated = yes
+        search_filters = { FOCUS_FILTER_POLITICAL }
+        ai_will_do = {
+            factor = 1
+        }
+        completion_reward = {
+			create_wargoal = {
+            type = annex_everything
+            target = LAT
+            expire = 0
+			}
+			create_wargoal = {
+            type = annex_everything
+			target = EST
+            expire = 0
+			}
+			create_wargoal = {
+            type = annex_everything
+			target = LIT
+            expire = 0
+			}
+        }
+    }
+
+	####################################
+    #focus demander wilno#
+    ####################################
+    focus = {
+        id = UPS_demander_Wilno
+        icon = GFX_focus_ITA_corpo_volontari_della_liberta 
+        x = 0
+        y = 1
+        cost = 0
+		prerequisite = { focus = UPS_revendiquer_les_pays_baltes}
+		relative_position_id = UPS_revendiquer_les_pays_baltes
+        available_if_capitulated = yes
+        search_filters = { FOCUS_FILTER_POLITICAL }
+        ai_will_do = {
+            factor = 1
+        }
+        completion_reward = {
+
+        }
+    }
+
+    ############################
+    #focus op                  #
+    ############################
+    focus = {
+        id = op
+        icon = GFX_focus_ITA_corpo_volontari_della_liberta 
+        x = 8
+        y = 2
+        cost = 0
+        available_if_capitulated = yes
+        search_filters = { FOCUS_FILTER_POLITICAL }
+        ai_will_do = {
+            factor = 1
+        }
+        completion_reward = {
+            sound_effect = "lappel_du_peuple.ogg"
+            news_event = { id = news.grandleader. hours = 3 }
+            add_popularity = {
+                army_experience = 15
+                set_rule = { can_create_factions = yes }
+			if = {
+				limit = {
+					is_in_faction = no
+				}
+				create_faction = Union_des_peuples_socialistes
+			}
+			}
+			POL = { country_event = { id = ups.5 hours = 1 }
+			deactivate_shine_on_focus = L
+			remove_ideas = UPS_soutient_partie_kyanhg
+		}
+        }
+    }
+
+    ############################
+    #focus L#
+    ############################
+    focus = {
+        id = L
+        icon = GFX_focus_ITA_corpo_volontari_della_liberta
+        x = 8
+        y = 4
+        
+        cost = 0
+        available = {
+            controls_state = 205
+            controls_state = 224
+            controls_state = 243
+        }
+        prerequisite = { focus = op}
+        search_filters = { FOCUS_FILTER_POLITICAL }
+        ai_will_do = {
+            factor = 1
+        }
+
+        completion_reward = {
+            country_event = { id = ups.5 hours = 2 }
+            add_political_power = 10
+            create_wargoal = {
+            type = annex_everything
+            target = LAT
+            expire = 0
+        }
+    }
+    
+        }
+
+
+    ###############################
+    #focus Le grand leader Yassine#
+    ###############################
+    focus = {
+        id = Leader_Yassine 
+        icon = GFX_focus_ITA_corpo_volontari_della_liberta
+        x = -2.5
+        y = 1
+        relative_position_id = UPS_Le_peuple_avant_tout
+        cost = 0
+        prerequisite = { focus = UPS_Le_peuple_avant_tout}
+        mutually_exclusive { focus = Le_grand_Leader }
+        mutually_exclusive { focus = Leportus }
+        mutually_exclusive { focus = Empereur_Leportus }
+        available_if_capitulated = yes
+        search_filters = { FOCUS_FILTER_POLITICAL }
+        ai_will_do = {
+            factor = 1
+        }
+
+        completion_reward = {
+            add_political_power = 50
+			news_event = { id = news.grandleader.2 hours = 3 }
+        }
+
+ 
+    }
+
+    ############################
+    #focus Leportus président  #
+    ############################
+    focus = {
+        id = Leportus
+        icon = GFX_focus_ITA_corpo_volontari_della_liberta
+        x = 2.5
+        y = 1
+        relative_position_id = UPS_Le_peuple_avant_tout
+        cost = 0.1
+        prerequisite = { focus = UPS_Le_peuple_avant_tout}
+        mutually_exclusive { focus = Leader_Yassine }
+        mutually_exclusive { focus = Empereur_Leportus }
+        mutually_exclusive { focus = Le_grand_Leader }
+        available_if_capitulated = yes
+        search_filters = { FOCUS_FILTER_POLITICAL }
+        ai_will_do = {
+            factor = 1
+        }
+
+        completion_reward = { 
+            add_political_power = 50
+            set_politics = {
+        ruling_party = democratic
+        elections_allowed = no
+        last_election = "1935.12.17"
+        election_frequency = 48
+        long_name = liberal
+        name = liberal
+            }
+        }
+    }
+	
+
+    ############################
+    #focus Empereur Leportus   #
+    ############################
+    focus = {
+        id = Empereur_Leportus
+        icon = GFX_focus_ITA_corpo_volontari_della_liberta
+        x = 5
+        y = 1
+        relative_position_id = UPS_Le_peuple_avant_tout
+        cost = 0.1
+        prerequisite = { focus = UPS_Le_peuple_avant_tout}
+        mutually_exclusive { focus = Leportus }
+        mutually_exclusive { focus = Leader_Yassine }
+        mutually_exclusive { focus = Le_grand_Leader }
+        available_if_capitulated = yes
+        search_filters = { FOCUS_FILTER_POLITICAL }
+        ai_will_do = {
+            factor = 1
+        }
+
+        completion_reward = {
+            add_political_power = 50
+            set_politics = {
+        ruling_party = neutrality
+        elections_allowed = no
+        last_election = "1935.12.17"
+        election_frequency = 48
+        long_name = svetova empire
+        name = svetova empire
+        }
+     }
+     
+    }
+}
