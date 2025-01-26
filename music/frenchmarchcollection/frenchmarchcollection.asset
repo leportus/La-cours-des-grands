@@ -1,0 +1,16 @@
+#Main Menu Theme
+
+music = {
+	name = "maintheme"
+	file = "01_lappeldupeuple.ogg"
+	volume = 1.00
+}
+
+music = {
+	name = "l'appel du peuple"
+	file = "01_lappeldupeuple.ogg"
+	volume = 1.00
+}
+
+
+

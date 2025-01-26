@@ -1,0 +1,18 @@
+music = {
+	name = "l'appel du peuple"
+	file = "lappel_du_peuple.ogg"
+	volume = 1.4
+
+}
+
+music = {
+	name = "marche de l'armée du Kyanhg"
+	file = "marche_de_larmee_kyanhg.ogg"
+	volume = 1.4
+}
+
+music = {
+	name = "L'esperence_du_monde_meilleur"
+	file = "L'esperence_du_monde_meilleur.ogg"
+	volume = 1.4
+}

@@ -1,0 +1,13 @@
+music_station = "leportus"
+
+music = {
+	song = "l'appel du peuple"
+}
+
+music = {
+	song = "marche de l'armée du Kyanhg"
+}
+
+music = {
+	song = "L'esperence_du_monde_meilleur"
+}
