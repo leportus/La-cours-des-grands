@@ -1,0 +1,4 @@
+graphical_culture = SOV
+graphical_culture_2d = SOV	 
+
+color = { 214 27 27}

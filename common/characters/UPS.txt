@@ -1,0 +1,133 @@
+characters={
+	UPS_leportus={
+		name= "Leportus"
+		portraits={
+			civilian={
+				large=GFX_portrait_UPS_leportus
+			}
+		}
+		country_leader={
+			ideology=leportunism
+			expire="1965.1.1.1"
+			id=-1
+		}
+
+	}
+
+	UPS_e_leportus={
+		name= "Leportus"
+		portraits={
+			civilian={
+				large=GFX_portrait_UPS_eleportus
+			}
+		}
+		country_leader={
+			ideology=monarchism 
+			expire="1965.1.1.1"
+			id=-1
+		}
+
+	}
+
+	UPS_f_yassine={
+		name= "Yassine"
+		portraits={
+			civilian={
+				large=GFX_portrait_Leader_fyassine
+			}
+		}
+		country_leader={
+			ideology=fascism_ideology
+			expire="1965.1.1.1"
+			id=-1
+		}
+
+	}
+
+	UPS_l_elio={
+		name= "Elio"
+		portraits={
+			civilian={
+				large=GFX_portrait_Leader_L_Elio
+			}
+		}
+		country_leader={
+			ideology=leninism
+			expire="1965.1.1.1"
+			id=-1
+		}
+
+	}
+
+
+	UPS_yassine={
+		name= "Yassine"
+		portraits={
+			army={
+				large=GFX_portrait_UPS_yassine
+				small=GFX_portrait_UPS_yassine_small
+			}
+		}
+		field_marshal = {
+			traits={ old_guard media_personality }
+			skill=1
+			attack_skill=1
+			defense_skill=0
+			planning_skill=0
+			logistics_skill=1
+			legacy_id=3010
+		}
+	}
+
+	UPS_elio={
+		name= "Elio"
+		portraits={
+			army={
+				large=GFX_portrait_UPS_elio
+				small=GFX_portrait_UPS_elio_small
+			}
+		}
+		field_marshal = {
+			traits={ charismatic fast_planner }
+			skill=2
+			attack_skill=4
+			defense_skill=1
+			planning_skill=2
+			logistics_skill=2
+			legacy_id=3011
+		}
+	}
+
+    ########## Conseiller  #####################
+
+	UPS_miodrag = {
+		name = "Miodrag"
+		portraits = {
+			army = {
+				small = "GFX_idea_captain_miodrag"
+			}
+		}
+		advisor = {
+			slot = political_advisor
+			idea_token = captain_miodrag
+			allowed = {
+				original_tag = UPS
+			}
+			available = {
+				OR = {
+					has_completed_focus = revendication
+				}
+			}
+			traits = {
+				UPS_premier_ministre_miodrag
+			}
+
+			cost = 150
+
+			ai_will_do = {
+				factor = 1.500
+			}
+		}
+	}
+
+}

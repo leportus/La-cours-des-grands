@@ -1,0 +1,112 @@
+ideas = {
+	country = {
+		UPS_troubles_peuple = {
+		
+			allowed = {
+				always = yes
+			}
+
+			picture = UPS_troubles_peuple
+
+			removal_cost = -1
+			
+			modifier = {
+				stability_factor = -0.2
+				war_support_factor = 0.1
+			}
+		}
+
+		UPS_soutient_partie_kyanhg = {
+		
+			allowed = {
+				always = yes
+			}
+
+			picture = UPS_soutient_partie_kyanhg
+
+			removal_cost = -1
+			
+			modifier = {
+				stability_factor = 0.1
+				kyanhg_drift = 0.05
+				war_support_factor = 0.2
+			}
+			rule = {
+				can_create_factions = yes
+			}
+		}
+
+		UPS_armee_faible = {
+		
+			allowed = {
+				always = yes
+			}
+
+			picture = chi_war_of_resistance
+
+			removal_cost = -1
+			
+			modifier = {
+				defence = -0.5
+			}
+		}
+
+	}
+
+	# TECHNOLOGY
+	
+	aircraft_manufacturer = { #
+			
+		designer = yes
+		
+		camco = {
+
+			picture = generic_air_manufacturer_3
+
+			allowed = {
+				NOT = { has_dlc = "Waking the Tiger" }
+				original_tag = CHI
+			}
+			
+			research_bonus = {
+				air_equipment = 0.15
+			}
+			
+			traits = { medium_aircraft_manufacturer }
+			
+			# assembled hawk II and hawk III fighter bombers as well as the Vultee V-11 ground attackers
+						
+			ai_will_do = {
+				factor = 1
+			}
+		}
+	}
+
+	industrial_concern = {
+
+		CHI_mining_commission = {
+
+			picture = generic_industrial_concern_3		
+			
+			available = {
+				has_completed_focus = CHI_mining_commission
+			}
+
+			allowed = {
+				has_dlc = "Waking the Tiger"
+				original_tag = CHI
+			}
+
+			cost = 5 # ai doesnt like free ones. but lets fix this later
+			
+			ai_will_do = {
+				factor = 200
+			}
+
+			modifier = {
+				local_resources_factor = 0.1
+			}
+		}
+	}
+
+}
