@@ -1,0 +1,36 @@
+spriteTypes = {
+	
+	spriteType = {
+		name = "GFX_news_leader"
+		texturefile = "gfx/event_pictures/news_event_leader.dss"
+	}
+
+	spriteType = {
+		name = "GFX_news_leader_yassine"
+		texturefile = "gfx/event_pictures/news_event_yassine_pouvoir.dss"
+	}
+
+	spriteType = {
+		name = "GFX_news_leader_elio"
+		texturefile = "gfx/event_pictures/news_event_elio_pouvoir.dss"
+	}
+
+	spriteType = {
+		name = "GFX_news_leader_leportus"
+		texturefile = "gfx/event_pictures/news_event_leportus_pouvoir.dss"
+	}
+
+	spriteType = {
+		name = "GFX_news_peuple_libre"
+		texturefile = "gfx/event_pictures/news_event_peuple_libre.dss"
+	}
+
+	spriteType = {
+		name = "GFX_news_event_premier_ministre_creation_propagande"
+		texturefile = "gfx/event_pictures/news_event_premier_ministre_creation_propagande.dss"
+	}
+	
+}
+
+
+

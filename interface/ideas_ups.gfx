@@ -1,0 +1,18 @@
+spriteTypes = {	
+
+	SpriteType = {
+		name = "GFX_idea_UPS_troubles_peuple"
+		texturefile = "gfx/interface/ideas/UPS/idea_UPS_troubles_peuple.dds"
+	}
+
+	SpriteType = {
+		name = "GFX_idea_UPS_soutient_partie_kyanhg"
+		texturefile = "gfx/interface/ideas/UPS/idea_UPS_soutient_partie_kyanhg.dds"
+	}
+
+		SpriteType = {
+		name = "GFX_idea_captain_miodrag"
+		texturefile = "gfx/interface/ideas/UPS/captain_miodrag.dds"
+	}
+}
+

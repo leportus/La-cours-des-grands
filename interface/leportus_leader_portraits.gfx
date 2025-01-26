@@ -1,0 +1,54 @@
+spriteTypes = {
+
+	### UPS
+
+	spriteType = {
+		name = "GFX_portrait_UPS_leportus"
+		texturefile = "gfx/leaders/UPS/portrait_Leader_Leportus.dds"
+	}
+
+	spriteType = {
+		name = "GFX_portrait_UPS_eleportus"
+		texturefile = "gfx/leaders/UPS/portrait_Leader_eLeportus.dds"
+	}
+
+	spriteType = {
+		name = "GFX_portrait_UPS_pleportus"
+		texturefile = "gfx/leaders/UPS/portrait_Leader_pLeportus.dds"
+	}
+
+	spriteType = {
+		name = "GFX_portrait_UPS_fyassine"
+		texturefile = "gfx/leaders/UPS/portrait_Leader_fyassine.dds"
+	}
+
+	spriteType = {
+		name = "GFX_portrait_Leader_L_Elio"
+		texturefile = "gfx/leaders/UPS/portrait_Leader_L_Elio.dds"
+	}
+
+
+
+
+	spriteType = {
+		name = "GFX_portrait_UPS_yassine"
+		texturefile = "gfx/leaders/UPS/portrait_Leader_yassine.dds"
+	}
+
+	spriteType = {
+		name = "GFX_portrait_UPS_yassine_small"
+		texturefile = "gfx/interface/ideas/UPS/portraits_yassine.dds"
+	}
+
+
+	spriteType = {
+		name = "GFX_portrait_UPS_elio"
+		texturefile = "gfx/leaders/UPS/portrait_elio.dds"
+	}
+
+	spriteType = {
+		name = "GFX_portrait_UPS_elio_small"
+		texturefile = "gfx/interface/ideas/UPS/portraits_elio.dds"
+	}
+	
+}
