@@ -1,0 +1,73 @@
+UPS_industry_category = {
+
+    UPS_commercial_hasbro = {
+
+        icon = GFX_decision_generic_construction
+
+        allowed = {
+            original_tag = UPS
+        }
+
+        available = {
+            country_exists = SOV
+        }
+
+        visible = {
+            has_completed_focus = ups_industry
+        }
+
+        cost = 100
+
+        days_remove = 25
+
+        fire_only_once = yes
+
+        complete_effect = {
+            add_offsite_building = { type = industrial_complex level = 2 }
+        }
+
+        ai_will_do = {
+            factor = 5
+        }
+    }
+}
+
+UPS_extention_du_partie_category = {
+
+    UPS_sabotage_revolution_indonesie = {
+
+        icon = GFX_decision_eng_propaganda_campaigns
+
+        allowed = {
+            original_tag = UPS
+        }
+
+        available = {
+            country_exists = SOV
+        }
+
+        visible = {
+            has_completed_focus = ups_industry
+        }
+
+        cost = 100
+
+        days_remove = 25
+
+        fire_only_once = yes
+
+        complete_effect = {
+            add_offsite_building = { type = industrial_complex level = 2 }
+            set_province_controller = 4493
+            set_province_controller = 10263
+            add_stability = -0.05
+            INS = {
+                raid_add_unit_experience = 0.2
+            }
+        }
+
+        ai_will_do = {
+            factor = 5
+        }
+    }
+}
