@@ -1,3 +1,4 @@
+#Le moi est passé par là#
 focus_tree = {
     id = Union_people_socialist_of_kyanhg_focus
     country = {
