@@ -11,3 +11,7 @@ music = {
 music = {
 	song = "L'esperence_du_monde_meilleur"
 }
+
+music = {
+	song = "Le Courage Svetovas"
+}
