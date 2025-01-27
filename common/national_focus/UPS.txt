@@ -1,4 +1,4 @@
-#Le moi est passé par là#
+#Le moi est passé par là BURRY#
 focus_tree = {
     id = Union_people_socialist_of_kyanhg_focus
     country = {
