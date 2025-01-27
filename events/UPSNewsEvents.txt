@@ -1,0 +1,343 @@
+﻿add_namespace = news.grandleader
+
+# grand leader politique au pouvoir
+news_event = {
+	id = news.grandleader.1
+	title = news.grandleader.1.t
+	desc = news.grandleader.1.d
+	desc = news.grandleader.1.a
+	picture = GFX_news_leader
+	
+	major = yes
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = news.grandleader.1.a
+		trigger = {
+			NOT = {
+				TAG = UPS
+			}
+		}
+	}
+	option = {
+		name = news.grandleader.1.b
+		trigger = { TAG = UPS }
+	}
+	option = {
+		name = news.grandleader.1.c
+		trigger = { 
+			NOT = {
+				TAG = UPS
+			}
+		}
+	}
+}
+
+
+
+
+# Le peuple à parlé
+news_event = {
+	id = news.grandleader.2
+	title = news.grandleader.2.t
+	desc = news.grandleader.2.d
+	picture = GFX_news_leader_yassine
+	
+	major = yes
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = news.grandleader.2.a
+		trigger = {
+			NOT = {
+				TAG = UPS
+			}
+		}
+	}
+	option = {
+		name = news.grandleader.2.b
+		trigger = { TAG = UPS }
+		            add_political_power = 50
+            set_politics = {
+    			ruling_party = fascism 
+    			elections_allowed = no
+    			last_election = "1935.12.17"
+    			election_frequency = 48
+    			long_name = svetova_Fachistskaïa_Partiïa
+    			name = SFP
+           }
+	}
+}
+
+# Le peuple à parlé
+news_event = {
+	id = news.grandleader.3
+	title = news.grandleader.3.t
+	desc = news.grandleader.3.d
+	picture = GFX_news_leader_elio
+	
+	major = yes
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = news.grandleader.3.a
+		trigger = {
+			NOT = {
+				TAG = UPS
+			}
+		}
+	}
+	option = {
+		name = news.grandleader.3.b
+		trigger = { TAG = UPSC }
+		            add_political_power = 50
+            set_politics = {
+    			ruling_party = leninism 
+    			elections_allowed = no
+    			last_election = "1935.12.17"
+    			election_frequency = 48
+    			long_name = l'Union_des_peuples_socialistes_communsites
+    			name = UPSC
+           }
+	}
+}
+
+# Le peuple à parlé
+news_event = {
+	id = news.grandleader.4
+	title = news.grandleader.4.t
+	desc = news.grandleader.4.d
+	picture = GFX_news_event_generic_parliament
+	
+	major = yes
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = news.grandleader.4.a
+		trigger = {
+			NOT = {
+				TAG = UPS
+			}
+		}
+	}
+	option = {
+		name = news.grandleader.4.b
+		trigger = { TAG = UPS }
+		            add_political_power = 50
+            set_politics = {
+    			ruling_party = leportunism 
+    			elections_allowed = no
+    			last_election = "1935.12.17"
+    			election_frequency = 48
+    			long_name = l'Union_des_Peuples_Socialistes
+    			name = UPS
+           }
+	}
+}
+
+# Guerre civil
+news_event = {
+	id = news.grandleader.5
+	title = news.grandleader.5.t
+	desc = news.grandleader.5.d
+	picture = GFX_news_event_guerre_civil
+	
+	major = yes
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = news.grandleader.5.a
+		trigger = {
+			NOT = {
+				TAG = UPS
+			}
+		}
+	}
+	option = {
+		name = news.grandleader.5.b
+		trigger = { TAG = UPS }
+	}
+}
+
+# Le peuple à parlé
+news_event = {
+	id = news.grandleader.4
+	title = news.grandleader.4.t
+	desc = news.grandleader.4.d
+	picture = GFX_news_event_generic_parliament
+	
+	major = yes
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = news.grandleader.4.a
+		trigger = {
+			NOT = {
+				TAG = UPS
+			}
+		}
+	}
+	option = {
+		name = news.grandleader.4.b
+		trigger = { TAG = UPS }
+		            add_political_power = 50
+            set_politics = {
+    			ruling_party = leportunism 
+    			elections_allowed = no
+    			last_election = "1935.12.17"
+    			election_frequency = 48
+    			long_name = l'Union_des_Peuples_Socialistes
+    			name = UPS
+           }
+	}
+}
+
+# Le peuple est libre
+news_event = {
+	id = news.grandleader.6
+	title = news.grandleader.6.t
+	desc = news.grandleader.6.d
+	picture = GFX_news_peuple_libre
+	
+	major = yes
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = news.grandleader.6.a
+		trigger = {
+			NOT = {
+				TAG = UPS
+			}
+		}
+	}
+	option = {
+		name = news.grandleader.6.b
+		trigger = { TAG = UPS }
+		add_stability = 0.2
+	}
+}
+
+# liberation des indes orientales néerlandaises
+news_event = {
+	id = news.grandleader.7
+	title = news.grandleader.7.t
+	desc = news.grandleader.7.d
+	picture = GFX_news_event_generic_sign_treaty1
+	
+	major = yes
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = news.grandleader.7.a
+		trigger = {
+		}
+	}
+}
+
+# Le peuple est libre
+news_event = {
+	id = news.grandleader.6
+	title = news.grandleader.6.t
+	desc = news.grandleader.6.d
+	picture = GFX_news_peuple_libre
+	
+	major = yes
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = news.grandleader.6.a
+		trigger = {
+			NOT = {
+				TAG = UPS
+			}
+		}
+	}
+	option = {
+		name = news.grandleader.6.b
+		trigger = { TAG = UPS }
+		add_stability = 0.2
+	}
+}
+
+# favoriser la propagande
+news_event = {
+	id = news.grandleader.8
+	title = news.grandleader.8.t
+	desc = news.grandleader.8.d
+	picture = GFX_news_event_premier_ministre_creation_propagande
+	
+	major = yes
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = news.grandleader.8.a
+		trigger = {
+			TAG = UPS
+		}
+	}
+}
+
+# Travail forcé
+news_event = {
+	id = news.grandleader.9
+	title = news.grandleader.9.t
+	desc = news.grandleader.9.d
+	picture = GFX_news_event_002
+	
+	major = yes
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = news.grandleader.9.a
+		trigger = {
+			TAG = UPS
+		}
+	}
+}
+
+# la Pologne donne Wilno
+news_event = {
+	id = news.grandleader.10
+	title = news.grandleader.10.t
+	desc = news.grandleader.10.d
+	picture = GFX_news_event_generic_read_write
+	
+	major = yes
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = news.grandleader.10.a
+		trigger = {
+		}
+	}
+}
+
+# La Pologne refuse de donner Wilno (entre en guerre)
+news_event = {
+	id = news.grandleader.11
+	title = news.grandleader.11.t
+	desc = news.grandleader.11.d
+	picture = GFX_news_event_generic_read_write
+	
+	major = yes
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = news.grandleader.11.a
+		trigger = {
+		}
+	}
+}
